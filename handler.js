@@ -8,7 +8,7 @@ module.exports.ok = (event, context, callback) => {
     statusCode: 200,
     body: JSON.stringify({message: 'Go Serverless v1.0! Your function executed successfully!'})
   };
-  return context.succeed(response);
+  return callback(null, response);
 };
 
 /**
@@ -23,7 +23,7 @@ module.exports.badrequest = (event, context, callback) => {
     statusCode: 400,
     body: JSON.stringify(errors)
   };
-  return context.succeed(response);
+  return callback(null, response);
 };
 
 /**
@@ -36,7 +36,7 @@ module.exports.redirect = (event, context, callback) => {
       'Location': 'https://google.co.jp/'
     }
   };
-  return context.succeed(response);
+  return callback(null, response);
 };
 
 /**
@@ -50,5 +50,5 @@ module.exports.html = (event, context, callback) => {
     },
     body: '<!DOCTYPE html><html lang="ja"><title>serverless-response-sample</title><body><h1>html response</h1><p>hello serverless!</p></body></html>'
   };
-  return context.succeed(response);
+  return callback(null, response);
 };
